@@ -24,6 +24,7 @@ body {
   font-family: 'TTFirsNeue', 'Arial', sans-serif; 
   font-size: 16px; 
   color: var(--text-color); 
+  overflow-y: hidden;
 }
 
 a {
@@ -78,7 +79,6 @@ svg path {
 .wrapper {
   width: 100%;
   height: 1080px;
-  min-height: 800px;
   background: url("/img/fon.jpg") no-repeat;
   background-size: cover;
 }
@@ -93,18 +93,6 @@ svg path {
   height: 140px;
   border-bottom: 2px solid #c4c4c480;
 }
-
-.menu-open .header {
-  background-color: #000000;
-}
-
-.menu-open .header-logo {
-  display: none;
-}
-
-.menu-open .header-nav {
-  display: none;
-} 
 
 .header-container {
   height: 100%;
@@ -134,22 +122,6 @@ svg path {
   width: 38px;
   height: 4px;
   top: 17px;
-}
-
-.menu-open .burger-line:nth-child(2) {
-  display: none;
-}
-
-.menu-open .burger-line:first-child {
-  top: 18px;
-  transform: rotate(-45deg);
-}
-
-.menu-open .burger-line:nth-child(3) {
-  width: 49px;
-  top: 18px;
-  transform: rotate(45deg);
-  
 }
 
 .burger-line:nth-child(3) {
@@ -225,22 +197,40 @@ svg path {
   display: none;
   position: absolute;
   z-index: 200;
-  top: 140;
-  left: 0;
+  top: 0;
+  left: -1000;
   width: 100%;
-  height: 940px;
-  padding-top: 55px;
+  height: 1080px;
+}
+
+.menu-bottom {
   background-color: #373737;
+  height: 900px;
 }
 
 .menu-open .menu {
   display: block;
 }
 
+.menu-top {
+  padding: 49px 0;
+  background-color: #111;
+}
+
+.close {
+  width: 36px;
+  height: 36px;
+  background-image: url("../img/close.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .menu-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-top: 55px;
 }
 
 .menu-left__list {

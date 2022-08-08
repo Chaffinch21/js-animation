@@ -16,24 +16,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   siteLoader();
 
-  function menuLoader(){
-    let bl = gsap.timeline();
-    bl.from(".menu-open .header", {opacity: 0, duration: 1}, 1);
-    bl.from(".menu", {opacity: 0, duration: 2}, 0);
-    bl.from(".menu-container", {y:300, opacity: 0, duration: 1}, 2);
-  }
-
-
-  document.querySelector('.burger').addEventListener('click', function(){
-    document.querySelector('body').classList.toggle('menu-open');
-    if(document.querySelector('body').classList.contains('menu-open')){
-      menuLoader();
-    }
-    else {
-      siteLoader();
-    }
+  let bl = gsap.timeline({paused: true});
+    bl.fromTo(".menu-top", {opacity: 0}, {duration:1, opacity: 1});
+    bl.fromTo(".menu-bottom", {opacity: 0}, {opacity: 1, duration: 2}); 
+    bl.fromTo(".menu-container", {y:1000, opacity: 0}, {y:0, opacity: 1, duration: 1}, 2); 
     
+    
+document.querySelector('.burger').addEventListener("click", () => {
+  document.querySelector('body').classList.add('menu-open');
+  bl.play()
+  document.querySelector('.close').addEventListener("click", () => {
+    bl.reverse()
+    setTimeout(function(){document.querySelector('body').classList.remove('menu-open')}, 3000); 
   })
+})
 
   
 }, false);
